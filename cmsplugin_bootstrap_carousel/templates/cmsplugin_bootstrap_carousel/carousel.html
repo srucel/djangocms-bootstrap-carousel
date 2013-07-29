@@ -23,7 +23,7 @@ $(window).load(function() {
       <div class="carousel-caption">
     {% endif %}
         <h4>{{ item.caption_title }}</h4>
-        <p>{{ item.caption_content }}</p>
+        <p><a href="{{item.image_url}}">{{ item.caption_content }}</a></p>
     {% if item.image %}
       </div>
     {% endif %}

@@ -27,3 +27,4 @@ class CarouselItem(models.Model):
     caption_title = models.CharField(max_length=100, blank=True, null=True)
     caption_content = models.TextField(blank=True, null=True)
     image = FilerImageField(blank=True, null=True)
+    image_url = models.URLField(blank=True, null=True)
