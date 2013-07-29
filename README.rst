@@ -33,3 +33,8 @@ configuration file::
 .. note::
 
     Bootstrap is not included with this plugin.
+
+Image links
+============
+To be able to redirect the user to a particular page by clicking on a slider Image, we proposed customization for the plugin : 
+Adding a new field for the slider image : "Image url" for the page URL related to each Carousel image
