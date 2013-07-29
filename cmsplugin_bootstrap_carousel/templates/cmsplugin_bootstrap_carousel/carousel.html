@@ -19,11 +19,11 @@ $(window).load(function() {
   <div class="carousel-inner">{% for item in instance.carouselitem_set.all %}
     <div class="{% if forloop.first %}active {% endif %}item">
     {% if item.image %}
-      <img alt="" src="{{ item.image.url }}">
+      <a href="{{item.image_url}}"><img alt="" src="{{ item.image.url }}"></a>
       <div class="carousel-caption">
     {% endif %}
         <h4>{{ item.caption_title }}</h4>
-        <p><a href="{{item.image_url}}">{{ item.caption_content }}</a></p>
+        <p>{{ item.caption_content }}</p>
     {% if item.image %}
       </div>
     {% endif %}
