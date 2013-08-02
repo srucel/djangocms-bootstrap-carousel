@@ -1,35 +1,44 @@
 {% load sekizai_tags %}
 {% addtoblock "js" %}
 <script type="text/javascript">
-$(document).ready(function(){
-    $("#{{ instance.domid }}").carousel({interval: {{ instance.interval }}});
-});
-
-$(window).load(function() {
-    var carousel_items = $("#{{ instance.domid }}");
-    var height = 0;
-    carousel_items.each(function () {
-        height = Math.max(height, $(this).height());
+    $(document).ready(function() {
+        $("#{{ instance.domid }}").carousel({interval: parseInt('{{ instance.interval }}')});
     });
-    carousel_items.height(height);
-});
+    /*
+     * $items are not yet available here (why?) and in any case this does not really seem necessary...
+    $(window).load(function() {
+        var carousel_items = $("#{{ instance.domid }}").data('carousel').$items;
+        var height = 0;
+        carousel_items.each(function() {
+            height = Math.max(height, $(this).height());
+        });
+        carousel_items.height(height);
+    });
+    */
 </script>
+
 {% endaddtoblock %}
 <div id="{{ instance.domid }}" class="carousel slide">
-  <div class="carousel-inner">{% for item in instance.carouselitem_set.all %}
-    <div class="{% if forloop.first %}active {% endif %}item">
-    {% if item.image %}
-      <a href="{{item.image_url}}"><img alt="" src="{{ item.image.url }}"></a>
-      <div class="carousel-caption">
-    {% endif %}
-        <h4>{{ item.caption_title }}</h4>
-        <p>{{ item.caption_content }}</p>
-    {% if item.image %}
-      </div>
-    {% endif %}
-    </div>{% endfor %}
-  </div>
-  <!-- Carousel nav -->
-  <a class="carousel-control left" href="#{{ instance.domid }}" data-slide="prev">&lsaquo;</a>
-  <a class="carousel-control right" href="#{{ instance.domid }}" data-slide="next">&rsaquo;</a>
+    <div class="carousel-inner">{% for item in instance.carouselitem_set.all %}
+
+        <div class="{% if forloop.first %}active {% endif %}item">
+            {% if item.link %}<a href="{{ item.link.link }}">{% endif %}
+                {% if item.image %}
+                <img alt="" src="{{ item.image.url }}">
+                <div class="carousel-caption">
+                    {% endif %}
+                    <h4>{{ item.caption_title }}</h4>
+                    <p>{{ item.caption_content }}</p>
+                    {% if item.image %}
+                </div>
+                {% endif %}
+                {% if item.link %}</a>{% endif %}
+        </div>{% endfor %}
+    </div>
+    <ol class="carousel-indicators {{ instance.get_indicator_display|lower }}">{% for item in instance.carouselitem_set.all %}
+        {% include instance.indicator_template %}{% endfor %}
+    </ol>
+    <!-- Carousel nav -->
+    <a class="carousel-control left" href="#{{ instance.domid }}" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#{{ instance.domid }}" data-slide="next">&rsaquo;</a>
 </div>

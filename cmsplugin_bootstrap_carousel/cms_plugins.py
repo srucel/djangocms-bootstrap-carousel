@@ -10,7 +10,7 @@ from django.forms import ModelForm, ValidationError
 class CarouselForm(ModelForm):
     class Meta:
         model = Carousel
-    
+
     def clean_domid(self):
         data = self.cleaned_data['domid']
         if not re.match(r'^[a-zA-Z_]\w*$', data):

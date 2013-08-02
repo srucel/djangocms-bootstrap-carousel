@@ -2,15 +2,20 @@
 Bootstrap carousel plugin for Django CMS
 ========================================
 
-This plugin lets you easily add *carousel* components (ie. slideshows)
-into django-cms pages using `Bootstrap
-<http://twitter.github.com/bootstrap/>`_.
+This plugin lets you easily add *carousel* components (ie. slideshows) into
+django-cms pages using `Bootstrap <http://twitter.github.com/bootstrap/>`_.
+
+Forked from https://github.com/xmedia-systems/cmsplugin-bootstrap-carousel/
+which is itself a fork of:
+https://bitbucket.org/tonioo/cmsplugin-bootstrap-carousel
 
 Requirements
 ============
 
 * `Django CMS >= 2.2 <http://django-cms.org>`_
-* `Bootstrap <http://twitter.github.com/bootstrap/>`_
+* `Bootstrap <http://twitter.github.com/bootstrap/>`_ only tested with v2.*
+
+Works with Django CMS 3.*
 
 Installation
 ============
@@ -24,17 +29,51 @@ To use it into your project, just follow this procedure:
 
     $ ./manage.py syncdb
 
+If you are NOT using the djangocms filer plugin:
+------------------------------------------------
+
 Images embedded into carousels are automaticaly resized. The default
 size is 800x600. To change it, define the following variable into your
 configuration file::
 
   BOOTSTRAP_CAROUSEL_IMGSIZE = (1024, 768)
 
+If you ARE using the djangocms filer plugin:
+--------------------------------------------
+
+DOC TO BE COMPLETED
+
 .. note::
 
     Bootstrap is not included with this plugin.
 
-Image links
-============
-To be able to redirect the user to a particular page by clicking on a slider Image, we proposed customization for the plugin : 
+Usage
+=====
+
+Just select "Carousel" as a pluging for a placeholder
+
+Links
+-----
+To be able to redirect the user to a particular page by clicking on a slider Image, we proposed customization for the plugin :
 Adding a new field for the slider image : "Image url" for the page URL related to each Carousel image
+
+Indicators
+----------
+
+You can choose to have default bootstrap indicators (the circles) or thumbnails.
+Currently Thumbnails work will if you are using the filer plugin, not so well
+otherwise.
+
+
+Versions
+========
+
+0.9
+---
+
+ * Added links from each carousel slide
+ * Added a thumbnail mode for the indicators (works well with filer, unfinished without)
+
+0.1
+---
+Original github version

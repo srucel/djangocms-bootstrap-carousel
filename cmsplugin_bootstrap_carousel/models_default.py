@@ -5,41 +5,26 @@ from django.conf import settings
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.utils.translation import ugettext as _
 
-from cms.models.pluginmodel import CMSPlugin
+from cms.plugins.link.models import Link
 from PIL import Image
 from cStringIO import StringIO
 
 DEF_SIZE = (800, 600)
-        
-class Carousel(CMSPlugin):
-    domid = models.CharField(max_length=50, verbose_name=_('Name'))
-    interval = models.IntegerField(default=5000)
-    
-    def copy_relations(self, oldinstance):
-        for item in oldinstance.carouselitem_set.all():
-            item.pk = None
-            item.carousel = self
-            item.save()
-    
-    def __unicode__(self):
-        return self.domid
 
 class CarouselItem(models.Model):
-    carousel = models.ForeignKey(Carousel)
+    carousel = models.ForeignKey('Carousel')
     caption_title = models.CharField(max_length=100, blank=True, null=True)
     caption_content = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to="uploads/", blank=True, null=True)
-    image_url = models.URLField(blank=True, null=True)
+    link = models.ForeignKey(Link, blank=True, null=True)  # use django reverse or link to a page...
 
     def save(self, *args, **kwargs):
         if self.image:
+            # resize image to the BOOTSTRAP_CAROUSEL_IMGSIZE (or DEF_SIZE as a default)
             img = Image.open(self.image.file)
             if img.mode not in ('L', 'RGB'):
                 img = img.convert('RGB')
-            if hasattr(settings, "BOOTSTRAP_CAROUSEL_IMGSIZE"):
-                size = settings.BOOTSTRAP_CAROUSEL_IMGSIZE
-            else:
-                size = DEF_SIZE
+            size = getattr(settings, 'BOOTSTRAP_CAROUSEL_IMGSIZE', DEF_SIZE)
             img.thumbnail(size, Image.ANTIALIAS)
 
             temp_handle = StringIO()

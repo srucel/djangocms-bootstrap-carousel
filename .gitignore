@@ -1,0 +1,3 @@
+*.pyc
+/cmsplugin_bootstrap_carousel.egg-info/
+/nbproject/
