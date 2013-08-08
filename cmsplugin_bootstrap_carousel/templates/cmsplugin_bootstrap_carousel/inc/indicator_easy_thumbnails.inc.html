@@ -1,3 +1,4 @@
+{% load thumbnail %}
         <li data-target="#{{ instance.domid }}" data-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active {% endif %} thumbnail">
             <img src="{% thumbnail item.image 120x90 crop %}" alt="" />
         </li>
