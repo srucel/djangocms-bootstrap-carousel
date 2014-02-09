@@ -3,7 +3,7 @@ from django.db import models
 from django.utils.translation import ugettext as _
 
 from filer.fields.image import FilerImageField
-from cms.plugins.link.models import Link
+from djangocms_link.models import Link
 
 class CarouselItem(models.Model):
     carousel = models.ForeignKey(Carousel)
