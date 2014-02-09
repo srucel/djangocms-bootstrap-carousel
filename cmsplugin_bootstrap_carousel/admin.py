@@ -29,5 +29,5 @@ class CarouselAdmin(admin.ModelAdmin):
 
 admin.site.register(Carousel, CarouselAdmin)
 
-from cms.plugins.link.models import Link
+from djangocms_link.models import Link
 admin.site.register(Link)
