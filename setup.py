@@ -11,7 +11,7 @@ setup(
         ]
     },
 
-    version='0.9',
+    version='1.0',
     description='Bootstrap carousel plugin for django-cms',
     long_description=open(os.path.join(os.path.dirname(__file__), 'README.rst')).read(),
     author='Antoine Nguyen',
@@ -32,5 +32,5 @@ setup(
         ],
     include_package_data=True,
     zip_safe=True,
-    install_requires=['Django-CMS>=2.2'],
+    install_requires=['Django-CMS>=3.0'],
     )

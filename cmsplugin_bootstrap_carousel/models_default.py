@@ -5,7 +5,7 @@ from django.conf import settings
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.utils.translation import ugettext as _
 
-from cms.plugins.link.models import Link
+from djangocms_link.models import Link
 from PIL import Image
 from cStringIO import StringIO
 
