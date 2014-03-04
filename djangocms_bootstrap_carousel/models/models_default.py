@@ -1,22 +1,17 @@
 # coding: utf-8
+
 import os
 from django.db import models
 from django.conf import settings
 from django.core.files.uploadedfile import SimpleUploadedFile
-from django.utils.translation import ugettext as _
+from base import CarouselItemAbstract, DEF_SIZE
 
-from djangocms_link.models import Link
 from PIL import Image
 from cStringIO import StringIO
 
-DEF_SIZE = (800, 600)
 
-class CarouselItem(models.Model):
-    carousel = models.ForeignKey('Carousel')
-    caption_title = models.CharField(max_length=100, blank=True, null=True)
-    caption_content = models.TextField(blank=True, null=True)
+class CarouselItem(CarouselItemAbstract):
     image = models.ImageField(upload_to="uploads/", blank=True, null=True)
-    link = models.ForeignKey(Link, blank=True, null=True)  # use django reverse or link to a page...
 
     def save(self, *args, **kwargs):
         if self.image:

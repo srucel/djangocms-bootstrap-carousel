@@ -29,6 +29,10 @@ To use it into your project, just follow this procedure:
 
     $ ./manage.py syncdb
 
+
+It will adapt to your best-installed file manager - if there is django-filer,
+it will use it.
+
 If you are NOT using the djangocms filer plugin:
 ------------------------------------------------
 
@@ -54,8 +58,8 @@ Just select "Carousel" as a pluging for a placeholder
 
 Links
 -----
-To be able to redirect the user to a particular page by clicking on a slider Image, we proposed customization for the plugin :
-Adding a new field for the slider image : "Image url" for the page URL related to each Carousel image
+To be able to redirect the user to a particular page by clicking on a
+slider Image, each image as a ForeignKey to a djangocms-link Link model
 
 Indicators
 ----------
@@ -67,6 +71,11 @@ otherwise.
 
 Versions
 ========
+
+1.0
+---
+
+Some code cleanup
 
 0.9
 ---

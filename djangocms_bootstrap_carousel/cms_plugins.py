@@ -2,10 +2,11 @@
 import re
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
-from cmsplugin_bootstrap_carousel.models import *
 from django.utils.translation import ugettext as _
 from django.contrib import admin
 from django.forms import ModelForm, ValidationError
+
+from models import *
 
 class CarouselForm(ModelForm):
     class Meta:
@@ -24,7 +25,7 @@ class CarouselPlugin(CMSPluginBase):
     model = Carousel
     form = CarouselForm
     name = _("Carousel")
-    render_template = "cmsplugin_bootstrap_carousel/carousel.html"
+    render_template = "djangocms_bootstrap_carousel/carousel.html"
 
     inlines = [
         CarouselItemInline,

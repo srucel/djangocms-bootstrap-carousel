@@ -2,23 +2,24 @@ from setuptools import setup
 import os
 
 setup(
-    name='cmsplugin-bootstrap-carousel',
-    packages=['cmsplugin_bootstrap_carousel',],
+    name='djangocms-bootstrap-carousel',
+    packages=['djangocms_bootstrap_carousel',],
 
     package_data={
         '': [
-            'templates/cmsplugin_bootstrap_carousel/*.html',
+            'templates/djangocms_bootstrap_carousel/*.html',
+            'templates/djangocms_bootstrap_carousel/inc/*.html',
         ]
     },
 
-    version='1.0',
+    version='1.1',
     description='Bootstrap carousel plugin for django-cms',
     long_description=open(os.path.join(os.path.dirname(__file__), 'README.rst')).read(),
     author='Antoine Nguyen',
     author_email='tonio@ngyn.org',
     maintainer='Stefano Crosta',
-    maintainer_email='developers@3hpartners.com',
-    url='https://github.com/3hpartners/cmsplugin-bootstrap-carousel',
+    maintainer_email='stefano@digitalemagine.com',
+    url='https://github.com/digitalemagine/djangocms-bootstrap-carousel',
     license='BSD',
     keywords=['django', 'django-cms', 'bootstrap', 'carousel'],
     classifiers=[
@@ -32,5 +33,5 @@ setup(
         ],
     include_package_data=True,
     zip_safe=True,
-    install_requires=['Django-CMS>=3.0'],
+#    install_requires=['Django-CMS>=3.0'],
     )

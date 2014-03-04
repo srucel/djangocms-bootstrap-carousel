@@ -11,8 +11,8 @@ from django.contrib import messages
 from django.views.decorators.debug import sensitive_post_parameters
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 
-from cmsplugin_bootstrap_carousel.models import *
-from cmsplugin_bootstrap_carousel.cms_plugins import CarouselItemInline
+from models import *
+from cms_plugins import CarouselItemInline
 
 
 """
