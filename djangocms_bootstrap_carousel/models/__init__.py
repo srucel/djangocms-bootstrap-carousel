@@ -8,10 +8,8 @@ from django.conf import settings
 from base import Carousel
 
 if 'filer' in settings.INSTALLED_APPS:
-    print "using filer model"
     from models_filer import CarouselItem
 else:
-    print "using default internal model"
     from models_default import CarouselItem
 
 
