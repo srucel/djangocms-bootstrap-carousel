@@ -43,9 +43,8 @@ class Carousel(CMSPlugin):
     def __unicode__(self):
         return self.domid
 
-    def save(self, *args, **kwargs):
-        print 'save carousel'
-        super(Carousel, self).save(*args, **kwargs)
+#    def save(self, *args, **kwargs):
+#        super(Carousel, self).save(*args, **kwargs)
 
     class Meta:
         app_label = 'djangocms_bootstrap_carousel'
@@ -63,9 +62,8 @@ class CarouselItemAbstract(models.Model):
     caption_content = models.TextField(blank=True, null=True)
     link = models.ForeignKey(Link, blank=True, null=True)  # use django reverse or link to a page...
 
-    def save(self, *args, **kwargs):
-        print 'save carousel item', self.carousel
-        super(CarouselItemAbstract, self).save(*args, **kwargs)
+#    def save(self, *args, **kwargs):
+#        super(CarouselItemAbstract, self).save(*args, **kwargs)
 
     class Meta:
         abstract = True
