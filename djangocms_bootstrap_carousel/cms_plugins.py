@@ -24,7 +24,7 @@ class CarouselItemInline(admin.TabularInline):
 class CarouselPlugin(CMSPluginBase):
     model = Carousel
     form = CarouselForm
-    name = _("Carousel")
+    name = _("Bootstrap Carousel")
     render_template = "djangocms_bootstrap_carousel/carousel.html"
 
     inlines = [
