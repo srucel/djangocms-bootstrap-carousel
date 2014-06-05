@@ -76,6 +76,13 @@ this allows adjusting without modifying the CSS
 Versions
 ========
 
+1.3
+---
+
+Width and Height are now charfields, so that PX and % can both be used.
+A unit /must/ be specified to it to work now.
+
+
 1.2
 ---
 
