@@ -19,6 +19,9 @@ class Carousel(CMSPlugin):
     )
     indicator = models.IntegerField(choices=INDICATOR_CHOICES, default=0)
 
+    width = models.IntegerField(blank=True, null=True)
+    height = models.IntegerField(blank=True, null=True)
+
     @property
     def indicator_template(self):
         if 'filer' in settings.INSTALLED_APPS:

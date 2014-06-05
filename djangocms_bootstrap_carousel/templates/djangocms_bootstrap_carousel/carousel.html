@@ -18,7 +18,7 @@
 </script>
 
 {% endaddtoblock %}
-<div id="{{ instance.domid }}" class="carousel slide">
+<div id="{{ instance.domid }}" class="carousel slide" style="{% if instance.height %}height:{{ instance.height }};{% endif %}{% if instance.width %}width:{{ instance.width }};{% endif %}">
     <div class="carousel-inner">{% for item in instance.carouselitem_set.all %}
 
         <div class="{% if forloop.first %}active {% endif %}item">
