@@ -68,9 +68,19 @@ You can choose to have default bootstrap indicators (the circles) or thumbnails.
 Currently Thumbnails work will if you are using the filer plugin, not so well
 otherwise.
 
+You can force a width/height from the carousel admin config;
+those sizes are then set as a `style` attribute on the main carousel element -
+this allows adjusting without modifying the CSS
+
 
 Versions
 ========
+
+1.2
+---
+
+Width and Height can be forced from the carousel config.
+
 
 1.0
 ---
