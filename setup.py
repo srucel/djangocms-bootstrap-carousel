@@ -9,6 +9,7 @@ setup(
         '': [
             'templates/djangocms_bootstrap_carousel/*.html',
             'templates/djangocms_bootstrap_carousel/inc/*.html',
+            'models/*.py',
         ]
     },
 
